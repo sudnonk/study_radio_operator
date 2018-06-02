@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>30-3.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="%E7%AC%AC%E4%B8%89%E7%B4%9A%E7%B7%8F%E5%90%88%E7%84%A1%E7%B7%9A%E9%80%9A%E4%BF%A1%E5%A3%AB">第三級総合無線通信士</h1>
+<h2 id="%E5%B9%B3%E6%88%9030%E5%B9%B43%E6%9C%88%E6%9C%9F">平成30年3月期</h2>
+<h3 id="%E5%9F%BA%E7%A4%8E">基礎</h3>
+<p><a href="http://www.nichimu.or.jp/kshiken/pdf/shiken1/sogo-tu-3/kiso/kiso.pdf">この問題</a>
+を解いてます。</p>
+<h4 id="a-1">A-1</h4>
+<h5 id=""></h5>
+<p>平行平板電極間の電解の強さ</p>
+<p>$$
+\begin{aligned}
+E[V/m] = \frac{V[V]}{d[m]} \
+E = \frac{80}{0.02} = 4000
+\end{aligned}
+$$</p>
+<p>電荷eに働く力の大きさ</p>
+<p>$$
+\begin{aligned}
+[V] = [J/C] \
+[V/m] = [J/Cm] = [N/C]
+\end{aligned}
+$$</p>
+<p>より、</p>
+<p>$$
+\begin{aligned}
+f[N] = E[V/m] \times Q[C] \
+f[N] = 4000 \times -1.6*10^{-19} = -6.4 * 10^{-15}
+\end{aligned}
+$$</p>
+<p>よって、答えは4。</p>
+<h4 id="a-2">A-2</h4>
+<ul>
+<li>
+<p>(1)
+右ネジの法則より$II$</p>
+</li>
+<li>
+<p>(2)
+右ネジの法則より$III$</p>
+</li>
+</ul>
+<p>よって答えは3。</p>
+<h4 id="a-3">A-3</h4>
+<p>$$
+V =  \frac{\Delta \phi}{\Delta t} = \frac{B\Delta S}{\Delta t}
+$$</p>
+<p>磁界に垂直な方向には</p>
+<p>$$
+\sin(\frac{\pi}{6}) \times 2[m/s] = \frac{1}{2}\times 2 = 1[m/s]
+$$
+動くので、</p>
+<p>$$
+V = \frac{6\times 1}{1} = 6[V]
+$$</p>
+<p>よって答えは1。</p>
+<h4 id="a-4">A-4</h4>
+<p>$$
+\begin{aligned}
+x[J] = V[J/sA] \times t[s]  \times I[A] \
+V[J/s] = R[\Omega]\times I[A] \
+x[J] = I^2 R t
+\end{aligned}
+$$</p>
+<p>ジュール熱による加熱が誘導加熱なので、これはジュール熱</p>
+<p>よって、答えは3。</p>
+<h4 id="a-5">A-5</h4>
+<p>$$
+28\times\frac{10}{4+14} = 20[mA]
+$$</p>
+<p>よって、2。</p>
+<h4 id="a-6">A-6</h4>
+<p>見た感じ4。</p>
+<h4 id="a-7">A-7</h4>
+<p>インダクタを通ると、位相は遅れる。
+遅れているので、虚軸はマイナス。</p>
+<p>よって、答えは4。</p>
+<h4 id="a-8">A-8</h4>
+<p>有効電力は皮相電力の実部なので$cos\theta$</p>
+<p>皮相電力は有効電力と無効電力のベクトルの長さなので、$VI$</p>
+<p>よって、答えは2。</p>
+<h4 id="a-9">A-9</h4>
+<p>逆方向電圧で静電容量が変化なのでバラクタダイオード。</p>
+<p>よって答えは1。</p>
+<h4 id="a-10">A-10</h4>
+<p>$$
+\begin{aligned}
+V = RI \
+10 = 2000\times I \
+I = \frac{10}{2000} = 5[mA]
+\end{aligned}
+$$</p>
+<p>理想なので電圧降下はなく、そのまま$10[V]$</p>
+<p>よって、答えは4。</p>
+<h4 id="a-11">A-11</h4>
+<p>$200$倍に増幅されて$2[mA]$になったので、</p>
+<p>$$
+\frac{2[mA]}{200} = 10[\mu A]
+$$</p>
+<p>よって答えは、1。</p>
+<h4 id="a-12">A-12</h4>
+<p>基本的な形をしているので、電極は2極。</p>
+<p>電界と磁界は直交している。</p>
+<p>発振周波数は空洞共振器の共振周波数で決まる。</p>
+<p>よって、答えは1。</p>
+<h4 id="a-13">A-13</h4>
+<p>$$
+\begin{aligned}
+\frac{\Delta I_D}{\Delta V_{GS}} = \frac{-1[mA]}{-0.1[V]} = 10[mA/V] \
+= 10[m\Omega^{-1}] = 10[mS]
+\end{aligned}
+$$</p>
+<p>よって答えは、2。</p>
+<h4 id="a-14">A-14</h4>
+<p>演算増幅器の電圧増幅度は、</p>
+<p>$$
+\begin{aligned}
+\frac{V_o}{V_i} = 1+\frac{R_2}{R_2} = - \frac{360}{12} = -30
+\end{aligned}
+$$</p>
+<p>マイナスは逆相であることを示しているだけなので、</p>
+<p>答えは3。</p>
+<h4 id="a-15">A-15</h4>
+<p>ハートレー発振回路の原理図は</p>
+<img src="../resources/hartley.png" width="200px">
+<p>上図と同じ回路なのは、1。</p>
+<h3 id="%E3%83%A1%E3%83%A2">メモ</h3>
+<h4 id="%E3%83%9C%E3%83%AB%E3%83%88%E3%81%AE%E5%8D%98%E4%BD%8D">ボルトの単位</h4>
+<p>$$
+V[V] = V[J/C] = V[J/sA] = V[W/A]
+$$</p>
+<h4 id="%E8%AA%98%E5%B0%8E%E8%B5%B7%E9%9B%BB%E5%8A%9B%E3%81%AE%E5%85%AC%E5%BC%8F">誘導起電力の公式</h4>
+<p>$$
+V = \frac{\Delta \phi}{\Delta t} = \frac{B\Delta S}{\Delta t}
+$$</p>
+<h4 id="%E6%A5%B5%E6%9D%BF%E9%96%93%E3%81%AE%E9%9B%BB%E7%95%8C%E3%81%AE%E5%BC%B7%E3%81%95">極板間の電界の強さ</h4>
+<p>$$
+E[V/m] = \frac{V[V]}{d[m]}
+$$</p>
+<h4 id="%E6%A5%B5%E6%9D%BF%E9%96%93%E3%81%AB%E3%81%82%E3%82%8B%E9%9B%BB%E8%8D%B7%E3%81%AB%E5%83%8D%E3%81%8F%E5%8A%9B">極板間にある電荷に働く力</h4>
+<p>$$
+\begin{aligned}
+E[V/m] = E[N/C] \
+f[N] = E[N/C] \times Q[C]
+\end{aligned}
+$$</p>
+<h4 id="%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E7%86%B1%E3%81%A8%E8%AA%98%E5%B0%8E%E5%8A%A0%E7%86%B1">ジュール熱と誘導加熱</h4>
+<p>ジュール熱による加熱が誘導加熱</p>
+<h4 id="%E3%82%B3%E3%82%A4%E3%83%AB%E3%82%92%E9%80%9A%E3%82%8B%E3%81%A8%E9%81%85%E3%82%8C%E3%81%A6%E3%82%B3%E3%83%B3%E3%83%87%E3%83%B3%E3%82%B5%E3%82%92%E9%80%9A%E3%82%8B%E3%81%A8%E6%97%A9%E3%81%BE%E3%82%8B%E3%80%82">コイルを通ると遅れてコンデンサを通ると早まる。</h4>
+<p>コイルに貯まる分遅れて、コンデンサは向こうにある電荷が流れ出すから早まる。遅れるとベクトル図では虚数が負、進むと正</p>
+<h4 id="%E6%9C%89%E5%8A%B9%E9%9B%BB%E5%8A%9B%E3%81%8Ccostheta%E3%81%AA%E7%90%86%E7%94%B1">有効電力が$cos\theta$な理由</h4>
+<p>有効電力が電力の実部で無効電力が虚部、だから前者がcosで後者がsin</p>
+<h4 id="%E3%83%80%E3%82%A4%E3%82%AA%E3%83%BC%E3%83%89%E3%81%AE%E7%A8%AE%E9%A1%9E">ダイオードの種類</h4>
+<ul>
+<li>
+<p>パラクタダイオード
+可変容量。静電容量の変化を利用。</p>
+</li>
+<li>
+<p>ツェナーダイオード
+定電圧。逆方向電圧をかけた場合、ある電圧で降伏が起き電流にかかわらず一定ので夏が得られる。</p>
+</li>
+<li>
+<p>トンネルダイオード
+量子トンネル効果。電圧をかけるほど電流が少なくなる</p>
+</li>
+<li>
+<p>ホトダイオード
+フォトダイオード。光検出器</p>
+</li>
+</ul>
+<h4 id="%E7%9B%B8%E4%BA%92%E3%82%B3%E3%83%B3%E3%83%80%E3%82%AF%E3%82%BF%E3%83%B3%E3%82%B9">相互コンダクタンス</h4>
+<p>FETの相互コンダクタンスが大きいほど、小さなゲート電圧の変化で大きなドレイン電流の変化を得られる。</p>
+
+</body>
+</html>

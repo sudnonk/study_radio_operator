@@ -6,7 +6,7 @@
         {
             "label": "pandoc",
             "type": "shell",
-            "command": "C:\\Users\\YukiShitozawa\\AppData\\Local\\Pandoc\\pandoc.exe ${file} -f markdown+emoji -t html5 -s --katex -o ${fileDirname}\\..\\html\\${fileBasenameNoExtension}.html",
+            "command": "C:\\Users\\YukiShitozawa\\AppData\\Local\\Pandoc\\pandoc.exe ${file} -f markdown+emoji -t html5 -s --katex=https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/ -o ${fileDirname}\\..\\html\\${fileBasenameNoExtension}.html",
             "group": {
                 "kind": "build",
                 "isDefault": true
